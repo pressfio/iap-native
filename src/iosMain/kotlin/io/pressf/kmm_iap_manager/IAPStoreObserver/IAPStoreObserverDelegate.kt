@@ -1,6 +1,6 @@
-package io.pressf.kmm_iap_manager.IAPProduct
+package io.pressf.kmm_iap_manager.IAPStoreObserverDelegate
 
-import io.pressf.kmm_iap_manager.IAPProduct
+import io.pressf.kmm_iap_manager.IAPProduct.IAPProduct
 import platform.Foundation.NSError
 
 interface IAPStoreObserverDelegate {

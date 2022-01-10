@@ -1,6 +1,7 @@
 package io.pressf.kmm_iap_manager.IAPStoreObserver
 
 import io.pressf.kmm_iap_manager.IAPLogging.log
+import io.pressf.kmm_iap_manager.IAPStoreObserverDelegate.IAPStoreObserverDelegate
 import platform.Foundation.NSError
 import platform.StoreKit.*
 import platform.darwin.NSObject

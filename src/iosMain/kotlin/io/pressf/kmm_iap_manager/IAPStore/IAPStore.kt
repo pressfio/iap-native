@@ -3,7 +3,7 @@ package io.pressf.kmm_iap_manager.IAPStore
 import io.pressf.kmm_iap_manager.IAPLogging.err
 import io.pressf.kmm_iap_manager.IAPLogging.log
 import io.pressf.kmm_iap_manager.IAPLogging.warn
-import io.pressf.kmm_iap_manager.IAPProduct
+import io.pressf.kmm_iap_manager.IAPProduct.IAPProduct
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch

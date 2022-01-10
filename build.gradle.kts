@@ -1,3 +1,5 @@
+val coroutinesVersion = "1.4.2-native-mt"
+
 plugins {
     id("com.android.library")
     kotlin("multiplatform") version "1.4.30"
@@ -28,6 +30,11 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common:1.4.30")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}") {
+                    version {
+                        strictly(coroutinesVersion)
+                    }
+                }
             }
         }
 

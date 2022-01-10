@@ -10,6 +10,6 @@ internal fun warn(msg: String) {
     println("*** IAP Warning: $msg")
 }
 
-internal fun err(msgString: String) {
+internal fun err(msg: String) {
     println("*** IAP Error: $msg")
 }
