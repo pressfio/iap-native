@@ -2,14 +2,21 @@ package io.pressf.kmm_iap_manager.IAPLogging
 
 import kotlinx.coroutines.flow.MutableSharedFlow
 
-internal fun log(msg: String) {
-    println("*** IAP Manager: $msg")
+private fun printWithHeader(header: String, vararg msg: String) {
+    println("*** $header")
+    msg.forEach {
+        println(it)
+    }
 }
 
-internal fun warn(msg: String) {
-    println("*** IAP Warning: $msg")
+internal fun log(vararg msg: String) {
+    printWithHeader("IAPManager", *msg)
 }
 
-internal fun err(msg: String) {
-    println("*** IAP Error: $msg")
+internal fun warn(vararg msg: String) {
+    printWithHeader("IAPManager WARNING", *msg)
+}
+
+internal fun err(vararg msg: String) {
+    printWithHeader("IAPManager ERROR", *msg)
 }
