@@ -1,79 +1,40 @@
 package io.pressf.kmm_iap_manager.IAPStore
 
-import io.pressf.kmm_iap_manager.IAPLogging.err
-import io.pressf.kmm_iap_manager.IAPLogging.log
-import io.pressf.kmm_iap_manager.IAPLogging.warn
 import io.pressf.kmm_iap_manager.IAPProduct.IAPProduct
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.launch
-import platform.Foundation.NSError
-import platform.Foundation.NSErrorDomain
-import platform.StoreKit.*
-import platform.darwin.NSObject
+import platform.Foundation.*
 
-internal actual class IAPStore: NSObject(), SKPaymentTransactionObserverProtocol,
-    SKProductsRequestDelegateProtocol {
 
-    private val productChannel = Channel<Pair<List<IAPProduct>?, String?>>()
+internal actual object IAPStore {
 
-    init {
-        SKPaymentQueue.defaultQueue().addTransactionObserver(this)
+    private val delegate = IAPStoreDelegate()
+    internal actual val productsChannel = delegate.productChannel
+    internal val transactionsChannel = delegate.transactionsChannel
+
+    internal actual fun requestProducts(ids: Set<String>) {
+        delegate.requestProducts(ids)
     }
 
-    actual suspend fun getProducts(ids: Set<String>): Pair<List<IAPProduct>?, String?> {
-
-        val request = SKProductsRequest(productIdentifiers = ids)
-        request.setDelegate(this)
-        request.start()
-
-        return productChannel.receive()
-
+    internal actual fun restorePurchases() {
+        delegate.restorePurchases()
     }
 
-    actual suspend fun purchase(product: IAPProduct) {
-
-        if (!SKPaymentQueue.canMakePayments()) return
-
-        val transactions = SKPaymentQueue.defaultQueue().transactions
-            .mapNotNull { it as? SKPaymentTransaction }
-        if (transactions.last().transactionState == SKPaymentTransactionState.SKPaymentTransactionStatePurchasing) return
-
-        val payment = SKPayment.paymentWithProduct(product.skProduct)
-        SKPaymentQueue.defaultQueue().addPayment(payment)
-
+    internal actual fun purchaseProduct(product: IAPProduct) {
+        delegate.purchaseProduct(product)
     }
 
-    /* SKPaymentTransactionObserverProtocol conformance */
+    internal actual fun prepare() {
+        delegate.prepare()
+    }
 
-    override fun paymentQueue(queue: SKPaymentQueue, updatedTransactions: List<*>) {
-
-        val transactions = updatedTransactions
-            .mapNotNull { it as? SKPaymentTransaction }
-
-        transactions.forEach {
+    internal actual fun getPurchaseHistoryDataAsBase64EncodedString(): String? {
+        NSBundle.mainBundle.appStoreReceiptURL?.path?.let {
+            if (NSFileManager.defaultManager.fileExistsAtPath(it)) {
+                val receiptData = NSData.dataWithContentsOfFile(path = it, options = NSDataReadingMappedAlways, null)
+                return receiptData?.base64Encoding()
+            }
         }
+        return null
     }
 
-    /* SKProductsRequestDelegateProtocol conformance */
-
-    override fun productsRequest(request: SKProductsRequest, didReceiveResponse: SKProductsResponse) {
-
-        val receivedProducts = didReceiveResponse.products
-        val iapProducts = receivedProducts
-            .mapNotNull { it as? SKProduct }
-            .map { IAPProduct(it) }
-
-        GlobalScope.launch {
-            productChannel.send(Pair(iapProducts, null))
-        }
-
-    }
-
-    override fun request(request: SKRequest, didFailWithError: NSError) {
-        GlobalScope.launch {
-            productChannel.send(Pair(null, didFailWithError.localizedDescription))
-        }
-    }
 
 }
