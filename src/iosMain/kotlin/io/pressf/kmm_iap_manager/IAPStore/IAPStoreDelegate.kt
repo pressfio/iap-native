@@ -1,6 +1,9 @@
 package io.pressf.kmm_iap_manager.IAPStore
 
 import io.pressf.kmm_iap_manager.IAPProduct.IAPProduct
+import io.pressf.kmm_iap_manager.IAPProduct.IAPProductMetadata
+import io.pressf.kmm_iap_manager.IAPProduct.IAPProductState
+import io.pressf.kmm_iap_manager.IAPProduct.from
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -13,8 +16,8 @@ internal class IAPStoreDelegate: NSObject(), SKPaymentTransactionObserverProtoco
     SKProductsRequestDelegateProtocol {
 
     private val scope = CoroutineScope(Dispatchers.Default)
-    val productChannel = Channel<Pair<List<IAPProduct>?, String?>>()
-    val transactionsChannel = Channel<Pair<List<SKPaymentTransaction>?, String?>>()
+    val productChannel = Channel<Result<List<IAPProduct>>>()
+    val productMetadataChannel = Channel<Result<IAPProductMetadata>>()
 
     fun prepare() {
         SKPaymentQueue.defaultQueue().addTransactionObserver(this)
@@ -47,15 +50,16 @@ internal class IAPStoreDelegate: NSObject(), SKPaymentTransactionObserverProtoco
     override fun paymentQueue(queue: SKPaymentQueue, updatedTransactions: List<*>) {
         val transactions = updatedTransactions
             .mapNotNull { it as? SKPaymentTransaction }
-
         scope.launch {
-            transactionsChannel.send(Pair(transactions, null))
+            transactions.forEach {
+                productMetadataChannel.send(Result.success(IAPProductMetadata(it.payment.productIdentifier, IAPProductState.from(it.transactionState), it.originalTransaction?.transactionIdentifier ?: it.transactionIdentifier)))
+            }
         }
     }
 
     override fun paymentQueue(queue: SKPaymentQueue, restoreCompletedTransactionsFailedWithError: NSError) {
         scope.launch {
-            transactionsChannel.send(Pair(null, restoreCompletedTransactionsFailedWithError.localizedDescription))
+            productMetadataChannel.send(Result.failure(Exception(restoreCompletedTransactionsFailedWithError.localizedDescription)))
         }
     }
 
@@ -68,13 +72,13 @@ internal class IAPStoreDelegate: NSObject(), SKPaymentTransactionObserverProtoco
             .map { IAPProduct(it) }
 
         scope.launch {
-            productChannel.send(Pair(iapProducts, null))
+            productChannel.send(Result.success(iapProducts))
         }
     }
 
     override fun request(request: SKRequest, didFailWithError: NSError) {
         scope.launch {
-            productChannel.send(Pair(null, didFailWithError.localizedDescription))
+            productChannel.send(Result.failure(Exception(didFailWithError.localizedDescription)))
         }
     }
 

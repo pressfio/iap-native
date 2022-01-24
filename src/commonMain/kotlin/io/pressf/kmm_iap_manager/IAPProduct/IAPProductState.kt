@@ -4,5 +4,10 @@ enum class IAPProductState {
     NotPurchased,
     IsPurchasing,
     Purchased,
-    Error
+    Error,
+    Restored,
+    Loading;
+
+    companion object
+
 }

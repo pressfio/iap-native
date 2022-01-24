@@ -9,35 +9,33 @@ import kotlinx.coroutines.channels.consumeEach
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+
+typealias ProductId = String
+typealias IsPurchased = Boolean
 
 abstract class IAPManager {
 
     private val scope = CoroutineScope(Dispatchers.Default)
 
-    private val _productsFlow = MutableStateFlow<List<IAPProduct>>(emptyList())
-    val productsFlow = _productsFlow.asStateFlow()
+    private val _products = MutableSharedFlow<Result<List<IAPProduct>>>()
+    val products = _products.asSharedFlow()
 
-    private val _errorFlow = MutableStateFlow<String?>(null)
-    val errorFlow = _errorFlow.asStateFlow()
+    private val productIdsToStatus = MutableStateFlow<Map<ProductId, IsPurchased>>(emptyMap())
 
     init {
         scope.launch {
-            IAPStore.productsChannel.consumeEach {
-                val products = it.first
-                val error = it.second
-                if (products != null) {
-                    val purchasedIds = getPurchasedProductIds()
+            IAPStore.productsChannel.consumeEach { result ->
+                val products = result.getOrNull()
+                if ((result.isSuccess) && (products != null)) {
                     products.forEach { product ->
-                        if (purchasedIds.contains(product.id)) {
-                            product.update(IAPProductState.Purchased)
+                        productIdsToStatus.value[product.id]?.let { isPurchased ->
+                            if (isPurchased) { product.update(IAPProductState.Purchased) }
                         }
                     }
-                    println("Count: ${products.count()}")
-                    _productsFlow.value = products
+                    _products.emit(Result.success(products))
                 } else {
-                    _errorFlow.value = error
+                    _products.emit(Result.failure(result.exceptionOrNull() ?: Exception("Received empty product list")))
                 }
             }
         }
@@ -45,16 +43,15 @@ abstract class IAPManager {
 
     abstract suspend fun productWasPurchased(product: IAPProduct): Boolean
 
-    abstract suspend fun productWasRestored(product: IAPProduct): Boolean
+    abstract suspend fun productWasRestored(product: IAPProduct)
 
-    abstract suspend fun getProductIds(): Set<String>
-
-    abstract suspend fun getPurchasedProductIds(): Set<String>
+    abstract suspend fun getProductIds(): Map<ProductId, IsPurchased>
 
     fun refreshProducts() {
         scope.launch {
-            val ids = getProductIds()
-            IAPStore.requestProducts(ids)
+            val response = getProductIds()
+            productIdsToStatus.value = response
+            IAPStore.requestProducts(response.keys)
         }
     }
 

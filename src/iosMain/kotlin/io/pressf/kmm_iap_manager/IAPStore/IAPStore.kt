@@ -8,7 +8,7 @@ internal actual object IAPStore {
 
     private val delegate = IAPStoreDelegate()
     internal actual val productsChannel = delegate.productChannel
-    internal val transactionsChannel = delegate.transactionsChannel
+    internal actual val productMetadataChannel = delegate.productMetadataChannel
 
     internal actual fun requestProducts(ids: Set<String>) {
         delegate.requestProducts(ids)
