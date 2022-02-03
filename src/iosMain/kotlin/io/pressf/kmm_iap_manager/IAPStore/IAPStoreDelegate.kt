@@ -4,6 +4,7 @@ import io.pressf.kmm_iap_manager.IAPProduct.IAPProduct
 import io.pressf.kmm_iap_manager.IAPProduct.IAPProductMetadata
 import io.pressf.kmm_iap_manager.IAPProduct.IAPProductState
 import io.pressf.kmm_iap_manager.IAPProduct.from
+import io.pressf.kmm_iap_manager.Logging.msg
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
@@ -19,8 +20,18 @@ internal class IAPStoreDelegate: NSObject(), SKPaymentTransactionObserverProtoco
     val productChannel = Channel<Result<List<IAPProduct>>>()
     val productMetadataChannel = Channel<Result<IAPProductMetadata>>()
 
-    fun prepare() {
-        SKPaymentQueue.defaultQueue().addTransactionObserver(this)
+    fun start() {
+        val observers = SKPaymentQueue.defaultQueue().transactionObservers
+            .mapNotNull { it as? SKPaymentTransactionObserverProtocol }
+        if (!observers.contains(this)) {
+            SKPaymentQueue.defaultQueue().addTransactionObserver(this)
+        }
+    }
+
+    fun updateReceipt() {
+        val request = SKReceiptRefreshRequest()
+        request.setDelegate(this)
+        request.start()
     }
 
     fun requestProducts(ids: Set<String>) {
@@ -52,7 +63,7 @@ internal class IAPStoreDelegate: NSObject(), SKPaymentTransactionObserverProtoco
             .mapNotNull { it as? SKPaymentTransaction }
         scope.launch {
             transactions.forEach {
-                productMetadataChannel.send(Result.success(IAPProductMetadata(it.payment.productIdentifier, IAPProductState.from(it.transactionState), it.originalTransaction?.transactionIdentifier ?: it.transactionIdentifier)))
+                productMetadataChannel.send(Result.success(IAPProductMetadata(it)))
             }
         }
     }
@@ -70,9 +81,15 @@ internal class IAPStoreDelegate: NSObject(), SKPaymentTransactionObserverProtoco
         val iapProducts = receivedProducts
             .mapNotNull { it as? SKProduct }
             .map { IAPProduct(it) }
-
+        msg("Received products from store:", iapProducts.map { it.id })
         scope.launch {
             productChannel.send(Result.success(iapProducts))
+        }
+    }
+
+    override fun requestDidFinish(request: SKRequest) {
+        if (request is SKReceiptRefreshRequest) {
+            msg("Successfully refreshed IAP receipt")
         }
     }
 

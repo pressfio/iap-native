@@ -1,6 +1,7 @@
 package io.pressf.kmm_iap_manager.IAPManager
 
 import io.pressf.kmm_iap_manager.IAPProduct.IAPProduct
+import io.pressf.kmm_iap_manager.IAPProduct.IAPProductMetadata
 import io.pressf.kmm_iap_manager.IAPProduct.IAPProductState
 import io.pressf.kmm_iap_manager.IAPStore.IAPStore
 import kotlinx.coroutines.CoroutineScope
@@ -11,56 +12,105 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
-typealias ProductId = String
-typealias IsPurchased = Boolean
+internal typealias ProductId = String
 
+@Suppress("MemberVisibilityCanBePrivate")
 abstract class IAPManager {
 
-    private val scope = CoroutineScope(Dispatchers.Default)
+    /* Abstract members */
 
-    private val _products = MutableSharedFlow<Result<List<IAPProduct>>>()
-    val products = _products.asSharedFlow()
+    abstract suspend fun productWasPurchased(productId: String, purchaseId: String?, purchaseHistory: String?, ios: Boolean): Boolean
 
-    private val productIdsToStatus = MutableStateFlow<Map<ProductId, IsPurchased>>(emptyMap())
-
-    init {
-        scope.launch {
-            IAPStore.productsChannel.consumeEach { result ->
-                val products = result.getOrNull()
-                if ((result.isSuccess) && (products != null)) {
-                    products.forEach { product ->
-                        productIdsToStatus.value[product.id]?.let { isPurchased ->
-                            if (isPurchased) { product.update(IAPProductState.Purchased) }
-                        }
-                    }
-                    _products.emit(Result.success(products))
-                } else {
-                    _products.emit(Result.failure(result.exceptionOrNull() ?: Exception("Received empty product list")))
-                }
-            }
-        }
-    }
-
-    abstract suspend fun productWasPurchased(product: IAPProduct): Boolean
+    abstract suspend fun productWasRestored(productId: String, purchaseId: String?, purchaseHistory: String?, ios: Boolean)
 
     abstract suspend fun productWasRestored(product: IAPProduct)
 
-    abstract suspend fun getProductIds(): Map<ProductId, IsPurchased>
+    /* Implemented members */
 
-    fun refreshProducts() {
+    init {
+        start()
+    }
+
+    private val scope = CoroutineScope(Dispatchers.Default)
+
+    private val _products = MutableStateFlow<List<IAPProduct>>(emptyList())
+    val products = _products.asSharedFlow()
+
+    private val _error = MutableSharedFlow<Throwable>()
+    val error = _error.asSharedFlow()
+
+    private val _states = MutableStateFlow<Map<ProductId, IAPProductState>>(emptyMap())
+
+    fun reloadProducts(productIds: Set<String>, purchasedProductIds: Set<String>) {
         scope.launch {
-            val response = getProductIds()
-            productIdsToStatus.value = response
-            IAPStore.requestProducts(response.keys)
+            val states = _states.value
+            _states.value = purchasedProductIds.union(states.keys.toSet())
+                .map {
+                    it to if (purchasedProductIds.contains(it)) { IAPProductState.Purchased } else { states[it] ?: IAPProductState.NotPurchased }
+                }
+                .toMap()
         }
     }
 
     fun purchaseProduct(product: IAPProduct) {
+        scope.launch {
+            product.update(IAPProductState.Loading)
+        }
         IAPStore.purchaseProduct(product)
     }
 
     fun restorePurchases() {
         IAPStore.restorePurchases()
+    }
+
+    fun start() {
+
+        IAPStore.start()
+
+        scope.launch {
+            IAPStore.productsChannel.consumeEach { result ->
+                val receivedProducts = result.getOrNull()
+                if ((result.isSuccess) && (receivedProducts != null)) {
+                    receivedProducts.forEach { product ->
+                        _states.value[product.id]?.let { state ->
+                            product.update(state)
+                        }
+                    }
+                    _products.emit(receivedProducts)
+                } else {
+                    _error.emit(result.exceptionOrNull() ?: Exception("Received empty product list"))
+                }
+            }
+        }
+
+        scope.launch {
+            IAPStore.productMetadataChannel.consumeEach { result ->
+                val meta = result.getOrNull()
+                if ((result.isSuccess) && (meta != null)) {
+                    val id = meta.productId
+                    val state = meta.state
+                    val transactionId = meta.transactionId
+                    val platform = meta.platform
+                    val isIos = platform == IAPProductMetadata.Platform.IOS
+
+                    val product = _products.value
+                        .firstOrNull { it.id == id }
+                    product?.update(state)
+
+                    if (state == IAPProductState.Purchased) {
+                        val acknowledged = productWasPurchased(id, transactionId, IAPStore.purchaseHistory, isIos)
+                        if (acknowledged) {
+                            meta.completePurchase()
+                        }
+                    } else if (state == IAPProductState.Restored) {
+                        productWasRestored(id, transactionId, IAPStore.purchaseHistory, isIos)
+                    }
+                } else {
+                    _error.emit(result.exceptionOrNull() ?: Exception("Received null product metadata"))
+                }
+            }
+        }
+
     }
 
 }

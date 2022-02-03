@@ -7,6 +7,8 @@ import kotlinx.coroutines.channels.Channel
 
 internal expect object IAPStore {
 
+    internal val purchaseHistory: String?
+
     internal val productsChannel: Channel<Result<List<IAPProduct>>>
 
     internal val productMetadataChannel: Channel<Result<IAPProductMetadata>>
@@ -17,8 +19,8 @@ internal expect object IAPStore {
 
     internal fun purchaseProduct(product: IAPProduct)
 
-    internal fun getPurchaseHistoryDataAsBase64EncodedString(): String?
+    internal fun start()
 
-    internal fun prepare()
+    internal fun updatePurchaseHistory()
 
 }
