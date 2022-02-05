@@ -7,7 +7,7 @@ import java.util.logging.SimpleFormatter
 
 actual object Timestamp {
 
-    private val basicDatetimeNoMillisFormat = "yyyyMMdd'T'hhmmssZ"
+    private val basicDatetimeNoMillisFormat = "yyyy-MM-dd'T'hh:mm:ss"
 
     private val date: Date
         get() = Date()

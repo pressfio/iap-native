@@ -4,8 +4,10 @@ import io.pressf.kmm_iap_manager.IAPProduct.IAPProduct
 import io.pressf.kmm_iap_manager.IAPProduct.IAPProductMetadata
 import io.pressf.kmm_iap_manager.IAPProduct.IAPProductState
 import io.pressf.kmm_iap_manager.IAPStore.IAPStore
+import io.pressf.kmm_iap_manager.Logging.m
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.channels.consumeEach
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,17 +25,11 @@ abstract class IAPManager {
 
     abstract suspend fun productWasRestored(productId: String, purchaseId: String?, purchaseHistory: String?, ios: Boolean)
 
-    abstract suspend fun productWasRestored(product: IAPProduct)
-
     /* Implemented members */
 
-    init {
-        start()
-    }
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
-    private val scope = CoroutineScope(Dispatchers.Default)
-
-    private val _products = MutableStateFlow<List<IAPProduct>>(emptyList())
+    private val _products = MutableStateFlow<List<IAPProduct>?>(null)
     val products = _products.asSharedFlow()
 
     private val _error = MutableSharedFlow<Throwable>()
@@ -42,32 +38,42 @@ abstract class IAPManager {
     private val _states = MutableStateFlow<Map<ProductId, IAPProductState>>(emptyMap())
 
     fun reloadProducts(productIds: Set<String>, purchasedProductIds: Set<String>) {
-        scope.launch {
+        m("Reloading products...", mapOf(
+            "purchased" to purchasedProductIds.joinToString(", ")
+        ))
+        coroutineScope.launch {
             val states = _states.value
             _states.value = purchasedProductIds.union(states.keys.toSet())
                 .map {
                     it to if (purchasedProductIds.contains(it)) { IAPProductState.Purchased } else { states[it] ?: IAPProductState.NotPurchased }
                 }
                 .toMap()
+            IAPStore.requestProducts(productIds)
         }
     }
 
     fun purchaseProduct(product: IAPProduct) {
-        scope.launch {
+        m("Purchasing product...", mapOf(
+            "id" to product.id
+        ))
+        coroutineScope.launch {
             product.update(IAPProductState.Loading)
         }
         IAPStore.purchaseProduct(product)
     }
 
     fun restorePurchases() {
+        m("Restoring products...")
         IAPStore.restorePurchases()
     }
 
     fun start() {
 
+        m("Started")
+
         IAPStore.start()
 
-        scope.launch {
+        coroutineScope.launch {
             IAPStore.productsChannel.consumeEach { result ->
                 val receivedProducts = result.getOrNull()
                 if ((result.isSuccess) && (receivedProducts != null)) {
@@ -83,7 +89,7 @@ abstract class IAPManager {
             }
         }
 
-        scope.launch {
+        coroutineScope.launch {
             IAPStore.productMetadataChannel.consumeEach { result ->
                 val meta = result.getOrNull()
                 if ((result.isSuccess) && (meta != null)) {
@@ -93,7 +99,7 @@ abstract class IAPManager {
                     val platform = meta.platform
                     val isIos = platform == IAPProductMetadata.Platform.IOS
 
-                    val product = _products.value
+                    val product = (_products.value ?: emptyList())
                         .firstOrNull { it.id == id }
                     product?.update(state)
 
@@ -110,7 +116,6 @@ abstract class IAPManager {
                 }
             }
         }
-
     }
 
 }

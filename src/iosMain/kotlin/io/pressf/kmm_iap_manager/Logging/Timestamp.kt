@@ -5,7 +5,7 @@ import platform.Foundation.NSDateFormatter
 
 actual object Timestamp {
 
-    private val basicDatetimeNoMillisFormat = "yyyyMMdd'T'HHmmssZ"
+    private const val basicDatetimeNoMillisFormat = "yyyy-MM-dd'T'HH:mm:ss"
 
     private val date: NSDate
         get() = NSDate()

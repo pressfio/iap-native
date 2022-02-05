@@ -2,26 +2,39 @@ package io.pressf.kmm_iap_manager.Logging
 
 internal enum class MessageType(val title: String) {
     Message(""),
-    Warning("WARNING"),
-    Error("ERROR")
+    Warning(" - WARNING"),
+    Error(" - ERROR")
 }
 
-private fun writeToConsole(message: String, type: MessageType, context: List<String>?) {
-    println("[${Timestamp.basicDatetimeNoMillis()}] - ${type.title} - $message")
-    context?.forEachIndexed() { index, string ->
-        val symbol = if (index == context.count() - 1) "└──" else "├──"
-        println("$symbol\t$string")
+private fun writeToConsole(className: String?, message: String, type: MessageType, tags: Map<String, String>) {
+    println("─${ if (tags.isEmpty()) { "─" } else { "┬" } }─ [${Timestamp.basicDatetimeNoMillis()}]${type.title} - ${className ?: "Undefined"} - $message")
+    val count = tags.count()
+    tags.keys.forEachIndexed { index, key ->
+        val prefix = " ${ if (index == count - 1) { "└" } else { "├" } }───"
+        println("$prefix $key : ${tags[key]}")
     }
 }
 
-internal fun msg(msg: String, context: List<String>? = emptyList()) {
-    writeToConsole(msg, MessageType.Message, context)
+internal inline fun <reified T> T.m(msg: String, tags: Map<String, String> = emptyMap()) {
+    writeToConsole(T::class.simpleName, msg, MessageType.Message, tags)
 }
 
-internal fun wrn(msg: String, context: List<String>? = emptyList()) {
-    writeToConsole(msg, MessageType.Warning, context)
+internal inline fun <reified T> T.w(msg: String, tags: Map<String, String> = emptyMap()) {
+    writeToConsole(T::class.simpleName, msg, MessageType.Warning, tags)
 }
 
-internal fun err(msg: String, context: List<String>? = emptyList()) {
-    writeToConsole(msg, MessageType.Error, context)
+internal inline fun <reified T> T.e(msg: String, tags: Map<String, String> = emptyMap()) {
+    writeToConsole(T::class.simpleName, msg, MessageType.Error, tags)
+}
+
+internal fun mObjc(msg: String, className: String?, tags: Map<String, String> = emptyMap()) {
+    writeToConsole(className, msg, MessageType.Message, tags)
+}
+
+internal fun wObjc(msg: String, className: String?, tags: Map<String, String> = emptyMap()) {
+    writeToConsole(className, msg, MessageType.Warning, tags)
+}
+
+internal fun eObjc(msg: String, className: String?, tags: Map<String, String> = emptyMap()) {
+    writeToConsole(className, msg, MessageType.Error, tags)
 }

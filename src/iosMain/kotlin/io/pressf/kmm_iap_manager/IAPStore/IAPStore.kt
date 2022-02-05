@@ -1,7 +1,8 @@
 package io.pressf.kmm_iap_manager.IAPStore
 
 import io.pressf.kmm_iap_manager.IAPProduct.IAPProduct
-import io.pressf.kmm_iap_manager.Logging.wrn
+import io.pressf.kmm_iap_manager.Logging.m
+import io.pressf.kmm_iap_manager.Logging.w
 import kotlinx.cinterop.CPointer
 import kotlinx.cinterop.ObjCObjectVar
 import platform.Foundation.*
@@ -26,13 +27,13 @@ internal actual object IAPStore {
                     val receiptString = receiptData.base64Encoding()
                     return receiptString
                 } else {
-                    wrn("Failed to read data from receipt")
+                    w("Failed to read data from receipt")
                 }
             } else {
-                wrn("Found receipt url, but there is no such file")
+                w("Found receipt url, but there is no such file")
             }
         } else {
-            wrn("Receipt url is null")
+            w("Receipt url is null")
         }
         return null
     }
@@ -50,6 +51,7 @@ internal actual object IAPStore {
     }
 
     internal actual fun start() {
+        m("Started")
         delegate.start()
     }
 
