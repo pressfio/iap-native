@@ -1,9 +1,8 @@
-package io.pressf.kmm_iap_manager.Logging
+package io.pressf.kmm_iap_manager.log
 
 import android.annotation.SuppressLint
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.logging.SimpleFormatter
 
 actual object Timestamp {
 

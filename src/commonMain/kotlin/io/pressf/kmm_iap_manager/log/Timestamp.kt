@@ -1,4 +1,4 @@
-package io.pressf.kmm_iap_manager.Logging
+package io.pressf.kmm_iap_manager.log
 
 expect object Timestamp {
 

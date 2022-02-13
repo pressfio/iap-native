@@ -1,4 +1,4 @@
-package io.pressf.kmm_iap_manager.Logging
+package io.pressf.kmm_iap_manager.log
 
 internal enum class MessageType(val title: String) {
     Message(""),
@@ -7,7 +7,7 @@ internal enum class MessageType(val title: String) {
 }
 
 private fun writeToConsole(className: String?, message: String, type: MessageType, tags: Map<String, String>) {
-    println("─${ if (tags.isEmpty()) { "─" } else { "┬" } }─ [${Timestamp.basicDatetimeNoMillis()}]${type.title} - ${className ?: "Undefined"} - $message")
+    println("─${ if (tags.isEmpty()) { "─" } else { "┬" } }─ [${io.pressf.kmm_iap_manager.log.Timestamp.basicDatetimeNoMillis()}]${type.title} - ${className ?: "Undefined"} - $message")
     val count = tags.count()
     tags.keys.forEachIndexed { index, key ->
         val prefix = " ${ if (index == count - 1) { "└" } else { "├" } }───"
