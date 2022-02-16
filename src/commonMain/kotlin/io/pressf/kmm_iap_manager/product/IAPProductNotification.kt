@@ -1,7 +1,8 @@
 package io.pressf.kmm_iap_manager.product
 
-data class IAPProductNotification(
-    val type: IAPProductNotificationType,
-    val product: IAPProduct?,
+expect class IAPProductNotification(type: IAPProductNotificationType, error: String?) {
+
+    val type: IAPProductNotificationType
     val error: String?
-)
+
+}

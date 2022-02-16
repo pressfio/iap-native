@@ -67,8 +67,8 @@ object IAPManager {
     val receipt: String?
         get() = store.receipt
 
-    fun refreshProducts(ids: Set<String>) {
-        store.refreshProducts(ids)
+    fun refreshProducts(ids: Set<String>, callback: ((List<IAPProduct>) -> Unit)? = null) {
+        store.refreshProducts(ids, callback)
     }
 
     fun purchaseProduct(product: IAPProduct) {
@@ -79,8 +79,8 @@ object IAPManager {
         store.refreshReceipt()
     }
 
-    fun setPurchaseCompleted(product: IAPProduct) {
-
+    fun setPurchaseCompleted(notification: IAPProductNotification) {
+        store.setPurchaseCompleted(notification)
     }
 
     fun start() {

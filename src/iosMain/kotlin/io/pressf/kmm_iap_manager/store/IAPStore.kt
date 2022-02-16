@@ -7,9 +7,13 @@ import io.pressf.kmm_iap_manager.product.IAPProductNotificationType
 import io.pressf.kmm_iap_manager.log.eObjc
 import io.pressf.kmm_iap_manager.log.mObjc
 import io.pressf.kmm_iap_manager.log.wObjc
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import platform.Foundation.*
 import platform.StoreKit.*
 import platform.darwin.NSObject
+import platform.darwin.NSUInteger
 
 
 internal actual class IAPStore actual constructor(): NSObject(),
@@ -41,11 +45,15 @@ internal actual class IAPStore actual constructor(): NSObject(),
         return null
     }
 
-    actual fun refreshProducts(ids: Set<String>) {
+    actual fun refreshProducts(ids: Set<String>, callback: ((List<IAPProduct>) -> Unit)?) {
+
         mObjc("refreshing products", className)
+
         val request = SKProductsRequest(productIdentifiers = ids)
         request.setDelegate(this)
+
         request.start()
+
     }
 
     actual fun purchaseProduct(product: IAPProduct) {
@@ -67,12 +75,8 @@ internal actual class IAPStore actual constructor(): NSObject(),
         SKPaymentQueue.defaultQueue().addPayment(payment)
     }
 
-    actual fun setPurchaseCompleted(product: IAPProduct) {
-        product.latestTransaction?.let {
-            SKPaymentQueue.defaultQueue().finishTransaction(it)
-            return
-        }
-        wObjc("tried to complete product with null transaction", className)
+    actual fun setPurchaseCompleted(notification: IAPProductNotification) {
+        notification.transaction?.let { SKPaymentQueue.defaultQueue().finishTransaction(it) }
     }
 
     actual fun refreshReceipt() {
@@ -105,13 +109,9 @@ internal actual class IAPStore actual constructor(): NSObject(),
 
             val type = IAPProductNotificationType.fromSkPaymentTransactionState(it.transactionState)
 
-            val product = IAPManager.getProductList()
-                .firstOrNull { product -> product.id == it.payment.productIdentifier }
-            product?.rememberTransaction(it)
-
             val error = it.error?.localizedDescription
 
-            IAPManager.productNotificationWasReceived(IAPProductNotification(type, product, error))
+            IAPManager.productNotificationWasReceived(IAPProductNotification(type, error))
 
             mObjc("payment queue did update transaction", className, mapOf(
                 "productId" to it.payment.productIdentifier,

@@ -22,11 +22,4 @@ actual class IAPProduct(internal val skProduct: SKProduct) {
         }
     actual val price: String = skProduct.price.toString()
 
-    var latestTransaction: SKPaymentTransaction? = null
-        private set
-
-    fun rememberTransaction(transaction: SKPaymentTransaction) {
-        latestTransaction = transaction
-    }
-
 }
