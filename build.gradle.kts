@@ -1,66 +1,22 @@
-val coroutinesVersion = "1.4.2-native-mt"
-
-plugins {
-    id("com.android.library")
-    kotlin("multiplatform") version "1.4.30"
-    id("maven-publish")
-    signing
-}
-
-repositories {
-    google()
-    jcenter()
-    mavenCentral()
-}
-
-kotlin {
-
-    android {
-        publishLibraryVariants("release", "debug")
+buildscript {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
     }
-
-    ios() {
-        binaries {
-            framework()
-        }
-    }
-
-    sourceSets {
-
-        val commonMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlin:kotlin-stdlib-common:1.4.30")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}") {
-                    version {
-                        strictly(coroutinesVersion)
-                    }
-                }
-            }
-        }
-
-        val androidMain by getting {
-            dependencies {
-                implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-                implementation("androidx.startup:startup-runtime:1.0.0")
-            }
-        }
-
-        val iosMain by getting
-
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21")
+        classpath("com.android.tools.build:gradle:7.1.2")
     }
 }
 
-android {
-    compileSdkVersion(29)
-    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
-    defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(29)
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
     }
 }
 
-apply(from = "publish.gradle.kts")
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
+}

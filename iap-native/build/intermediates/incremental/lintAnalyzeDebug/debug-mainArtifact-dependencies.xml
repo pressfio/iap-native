@@ -1,0 +1,28 @@
+<dependencies>
+  <compile
+      roots="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21@jar,org.jetbrains.kotlin:kotlin-stdlib:1.6.21@jar,org.jetbrains:annotations:13.0@jar">
+    <dependency
+        name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1@jar"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21@jar"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21@jar"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib:1.6.21@jar"/>
+    <dependency
+        name="org.jetbrains:annotations:13.0@jar"/>
+  </compile>
+  <package
+      roots="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21@jar,org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21@jar,org.jetbrains.kotlin:kotlin-stdlib:1.6.21@jar,org.jetbrains:annotations:13.0@jar">
+    <dependency
+        name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1@jar"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21@jar"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21@jar"/>
+    <dependency
+        name="org.jetbrains.kotlin:kotlin-stdlib:1.6.21@jar"/>
+    <dependency
+        name="org.jetbrains:annotations:13.0@jar"/>
+  </package>
+</dependencies>

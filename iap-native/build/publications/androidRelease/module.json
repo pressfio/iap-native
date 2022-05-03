@@ -1,0 +1,138 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../iap-native/1.6.1/iap-native-1.6.1.module",
+    "group": "io.pressf.iap-native",
+    "module": "iap-native",
+    "version": "1.6.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.21"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.6.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "iap-native-release.aar",
+          "url": "iap-native-android-1.6.1.aar",
+          "size": 29612,
+          "sha512": "59956f428a82d3a8171e4853999fefd4acc202350b8b81271912b44c89395d28ac9683dd210812cdbf9ff78e75375a05df1c7d6c7504cc003b6890c465b8154f",
+          "sha256": "a0d96055b84652be1e98d7a3deb09b7cbfe5775013e74d2b3ee29679c85a8295",
+          "sha1": "3a290599460fea09551b4b5a2ec79017d6f8f762",
+          "md5": "c7760e17032e81b048221aa2e98668d0"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.21"
+          },
+          "excludes": [
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-stdlib-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-annotations-common"
+            }
+          ]
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.6.21"
+          },
+          "excludes": [
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-stdlib-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-annotations-common"
+            }
+          ]
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.6.1"
+          },
+          "excludes": [
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-stdlib-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-annotations-common"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "iap-native-release.aar",
+          "url": "iap-native-android-1.6.1.aar",
+          "size": 29612,
+          "sha512": "59956f428a82d3a8171e4853999fefd4acc202350b8b81271912b44c89395d28ac9683dd210812cdbf9ff78e75375a05df1c7d6c7504cc003b6890c465b8154f",
+          "sha256": "a0d96055b84652be1e98d7a3deb09b7cbfe5775013e74d2b3ee29679c85a8295",
+          "sha1": "3a290599460fea09551b4b5a2ec79017d6f8f762",
+          "md5": "c7760e17032e81b048221aa2e98668d0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../iap-native/1.6.1/iap-native-1.6.1.module",
+    "group": "io.pressf.iap-native",
+    "module": "iap-native",
+    "version": "1.6.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "debugApiElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.21"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.6.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "iap-native-debug.aar",
+          "url": "iap-native-android-debug-1.6.1.aar",
+          "size": 30799,
+          "sha512": "96ff2d863e6f8c2e10aeb12207ace6803f1ba5243a30598aa5d57b9255ce504e14286ba166c2167786a22ade2438511bda28cc02ac98dd5ba3c1835001692794",
+          "sha256": "b095b7b705f4fadc79ff59ff6c9bfaa00e8c553506fceecf1f608c56e18d87a6",
+          "sha1": "a5ba9ff9effb6173e63120ac032c03c37cd056fa",
+          "md5": "50b4c04c6a04026bf5491f7460da39c2"
+        }
+      ]
+    },
+    {
+      "name": "debugRuntimeElements-published",
+      "attributes": {
+        "com.android.build.api.attributes.BuildTypeAttr": "debug",
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.21"
+          },
+          "excludes": [
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-stdlib-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-annotations-common"
+            }
+          ]
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.6.21"
+          },
+          "excludes": [
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-stdlib-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-annotations-common"
+            }
+          ]
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.6.1"
+          },
+          "excludes": [
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-stdlib-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-common"
+            },
+            {
+              "group": "org.jetbrains.kotlin",
+              "module": "kotlin-test-annotations-common"
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "name": "iap-native-debug.aar",
+          "url": "iap-native-android-debug-1.6.1.aar",
+          "size": 30799,
+          "sha512": "96ff2d863e6f8c2e10aeb12207ace6803f1ba5243a30598aa5d57b9255ce504e14286ba166c2167786a22ade2438511bda28cc02ac98dd5ba3c1835001692794",
+          "sha256": "b095b7b705f4fadc79ff59ff6c9bfaa00e8c553506fceecf1f608c56e18d87a6",
+          "sha1": "a5ba9ff9effb6173e63120ac032c03c37cd056fa",
+          "md5": "50b4c04c6a04026bf5491f7460da39c2"
+        }
+      ]
+    }
+  ]
+}

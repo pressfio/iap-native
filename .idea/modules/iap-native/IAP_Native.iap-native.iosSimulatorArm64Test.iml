@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":iap-native:iosSimulatorArm64Test" external.linked.project.path="$MODULE_DIR$/../../../iap-native" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="io.pressf.iap-native" external.system.module.type="sourceSet" external.system.module.version="1.6.1" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="4" platform="Native (ios_simulator_arm64) " allPlatforms="Native []/Native [ios_simulator_arm64]" useProjectSettings="false" isTestModule="true" externalProjectId=":iap-native" isHmppProject="true">
+        <dependsOnModuleNames>
+          <dependsOn>:iap-native:commonTest</dependsOn>
+          <dependsOn>:iap-native:iosTest</dependsOn>
+        </dependsOnModuleNames>
+        <sourceSets>
+          <sourceSet>IAP_Native.iap-native.commonTest</sourceSet>
+          <sourceSet>IAP_Native.iap-native.iosTest</sourceSet>
+          <sourceSet>IAP_Native.iap-native.iosSimulatorArm64Main</sourceSet>
+          <sourceSet>IAP_Native.iap-native.commonMain</sourceSet>
+          <sourceSet>IAP_Native.iap-native.iosMain</sourceSet>
+        </sourceSets>
+        <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
+        <compilerSettings />
+        <compilerArguments>
+          <option name="languageVersion" value="1.6" />
+          <option name="apiVersion" value="1.6" />
+          <option name="pluginOptions">
+            <array />
+          </option>
+          <option name="pluginClasspaths">
+            <array />
+          </option>
+          <option name="multiPlatform" value="true" />
+          <option name="errors">
+            <ArgumentParseErrors />
+          </option>
+        </compilerArguments>
+      </configuration>
+    </facet>
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+        <afterSyncTasks>
+          <task>generateDebugSources</task>
+        </afterSyncTasks>
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/androidMain/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../iap-native/src/main/res;file://$MODULE_DIR$/../../../iap-native/src/androidMain/res;file://$MODULE_DIR$/../../../iap-native/src/debug/res;file://$MODULE_DIR$/../../../iap-native/src/androidDebug/res;file://$MODULE_DIR$/../../../iap-native/build/generated/res/rs/debug;file://$MODULE_DIR$/../../../iap-native/build/generated/res/resValues/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../iap-native/src/androidTest/res;file://$MODULE_DIR$/../../../iap-native/src/androidAndroidTest/res;file://$MODULE_DIR$/../../../iap-native/src/androidTestDebug/res;file://$MODULE_DIR$/../../../iap-native/src/androidAndroidTestDebug/res;file://$MODULE_DIR$/../../../iap-native/build/generated/res/rs/androidTest/debug;file://$MODULE_DIR$/../../../iap-native/build/generated/res/resValues/androidTest/debug" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+        <option name="PROJECT_TYPE" value="1" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output-test url="file://$MODULE_DIR$/../../../iap-native/build/classes/kotlin/iosSimulatorArm64/test/klib" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../iap-native/src/iosSimulatorArm64Test/kotlin" />
+    <content url="file://$MODULE_DIR$/../../../iap-native/src/iosSimulatorArm64Test/resources" />
+    <orderEntry type="jdk" jdkName="Android API 31 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - stdlib" level="project" />
+    <orderEntry type="module" module-name="IAP_Native.iap-native.commonMain" scope="TEST" />
+    <orderEntry type="module" module-name="IAP_Native.iap-native.commonTest" scope="TEST" production-on-test="" />
+    <orderEntry type="module" module-name="IAP_Native.iap-native.iosMain" scope="TEST" />
+    <orderEntry type="module" module-name="IAP_Native.iap-native.iosSimulatorArm64Main" scope="TEST" />
+    <orderEntry type="module" module-name="IAP_Native.iap-native.iosTest" scope="TEST" production-on-test="" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ARKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AVFAudio [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AVFoundation [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AVKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Accelerate [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Accessibility [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Accounts [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AdServices [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AdSupport [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AddressBook [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AddressBookUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AppClip [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AppTrackingTransparency [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AssetsLibrary [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AudioToolbox [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AuthenticationServices [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - AutomaticAssessmentConfiguration [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - BackgroundTasks [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - BusinessChat [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CFNetwork [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CallKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CarPlay [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ClassKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ClockKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CloudKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CommonCrypto [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Contacts [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ContactsUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreAudio [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreAudioKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreAudioTypes [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreBluetooth [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreData [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreFoundation [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreGraphics [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreHaptics [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreImage [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreLocation [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreLocationUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreMIDI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreML [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreMedia [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreMotion [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreNFC [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreServices [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreSpotlight [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreTelephony [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreText [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CoreVideo [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - CryptoTokenKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - DataDetection [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - DeviceCheck [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - EAGL [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - EventKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - EventKitUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ExposureNotification [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ExternalAccessory [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - FileProvider [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - FileProviderUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Foundation [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - GLKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - GSS [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - GameController [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - GameKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - GameplayKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - HealthKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - HealthKitUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - HomeKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - IOSurface [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - IdentityLookup [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - IdentityLookupUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ImageCaptureCore [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ImageIO [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Intents [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - IntentsUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - JavaScriptCore [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - LinkPresentation [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - LocalAuthentication [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MLCompute [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MapKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MediaAccessibility [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MediaPlayer [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MediaSetup [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MediaToolbox [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MessageUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Messages [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Metal [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MetalKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MetalPerformanceShaders [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MetalPerformanceShadersGraph [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MetricKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MobileCoreServices [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ModelIO [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - MultipeerConnectivity [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - NaturalLanguage [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - NearbyInteraction [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Network [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - NetworkExtension [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - NewsstandKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - NotificationCenter [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - OpenAL [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - OpenGLES [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - OpenGLES2 [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - OpenGLES3 [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - OpenGLESCommon [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - PDFKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - PHASE [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - PassKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - PencilKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Photos [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - PhotosUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - PushKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - QuartzCore [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - QuickLook [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - QuickLookThumbnailing [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ReplayKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - SafariServices [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - SceneKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ScreenTime [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Security [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - SensorKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ShazamKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Social [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - SoundAnalysis [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Speech [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - SpriteKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - StoreKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - SystemConfiguration [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - ThreadNetwork [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Twitter [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - UIKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - UniformTypeIdentifiers [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - UserNotifications [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - UserNotificationsUI [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - VideoSubscriberAccount [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - VideoToolbox [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - Vision [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - VisionKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - WatchConnectivity [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - WebKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - _CoreData_CloudKit [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - builtin [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - darwin [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - iAd [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - iconv [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - objc [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - posix [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Kotlin/Native 1.6.21 - zlib [ios_simulator_arm64]" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64:klib:1.6.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:klib:0.17.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: org.jetbrains.kotlinx:atomicfu-iossimulatorarm64:klib:cinterop-interop:0.17.0" level="project" />
+  </component>
+  <component name="TestModuleProperties" production-module="IAP_Native.iap-native.iosSimulatorArm64Main" />
+</module>

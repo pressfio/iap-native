@@ -1,0 +1,93 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "url": "../../iap-native/1.6.1/iap-native-1.6.1.module",
+    "group": "io.pressf.iap-native",
+    "module": "iap-native",
+    "version": "1.6.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "iosSimulatorArm64ApiElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-api",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.6.21"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.6.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "iap-native.klib",
+          "url": "iap-native-iossimulatorarm64-1.6.1.klib",
+          "size": 34945,
+          "sha512": "89d924666a5ac6fe5caaa7b98b8c15003c5109e8786ae5069fc9242d7dd9bf656b44705905d7be97cb727c9424cff2fb930da0fa7fc36f3b4802ba72c3bc19b9",
+          "sha256": "527370813befd4881ffc382dc28fba047f90bd72d5a2a4bbf3794a98da5e686c",
+          "sha1": "1b036b2e36dfdcadf5779dc79090a1a7c372471d",
+          "md5": "ecd946e6fdc3f721f8b6106ba0de789b"
+        }
+      ]
+    },
+    {
+      "name": "iosSimulatorArm64MetadataElements-published",
+      "attributes": {
+        "artifactType": "org.jetbrains.kotlin.klib",
+        "org.gradle.category": "library",
+        "org.gradle.usage": "kotlin-metadata",
+        "org.jetbrains.kotlin.native.target": "ios_simulator_arm64",
+        "org.jetbrains.kotlin.platform.type": "native"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.6.21"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.6.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "iap-native-iossimulatorarm64-1.6.1-metadata.jar",
+          "url": "iap-native-iossimulatorarm64-1.6.1-metadata.jar",
+          "size": 7628,
+          "sha512": "3b9582c2d1372a57d1d981c2d3f1df6c427870d22cc5dbcba9b9db4987e349faee8d6aa30081fb42f8961f0b514f38e12defc2c0010e2f9baa84371e3c25b8c1",
+          "sha256": "f959ae09e0b2e2351f73b0966c20b65d8f7021a87ad05e73c339cd662ae735da",
+          "sha1": "ecbd1e5e10030c1f6b0d0f6e6961d83631b26dd6",
+          "md5": "15e5bec5ed97c38e68b02c638e80cd35"
+        }
+      ]
+    }
+  ]
+}
