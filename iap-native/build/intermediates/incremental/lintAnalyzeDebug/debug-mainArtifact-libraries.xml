@@ -1,0 +1,22 @@
+<libraries>
+  <library
+      name="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1@jar"
+      jars="/Users/petr/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.6.1/97fd74ccf54a863d221956ffcd21835e168e2aaa/kotlinx-coroutines-core-jvm-1.6.1.jar"
+      resolved="org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.1"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21@jar"
+      jars="/Users/petr/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.6.21/eeb4d60d75e9ea9c11200d52974e522793b14fba/kotlin-stdlib-jdk8-1.6.21.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.21"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21@jar"
+      jars="/Users/petr/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.6.21/568c1b78a8e17a4f35b31f0a74e2916095ed74c2/kotlin-stdlib-jdk7-1.6.21.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21"/>
+  <library
+      name="org.jetbrains.kotlin:kotlin-stdlib:1.6.21@jar"
+      jars="/Users/petr/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.6.21/11ef67f1900634fd951bad28c53ec957fabbe5b8/kotlin-stdlib-1.6.21.jar"
+      resolved="org.jetbrains.kotlin:kotlin-stdlib:1.6.21"/>
+  <library
+      name="org.jetbrains:annotations:13.0@jar"
+      jars="/Users/petr/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar"
+      resolved="org.jetbrains:annotations:13.0"/>
+</libraries>

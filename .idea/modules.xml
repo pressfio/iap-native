@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/IAP_Native.iml" filepath="$PROJECT_DIR$/.idea/modules/IAP_Native.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/library/IAP_Native.iap-native.iml" filepath="$PROJECT_DIR$/.idea/modules/library/IAP_Native.iap-native.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.androidAndroidTestRelease.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.androidAndroidTestRelease.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.androidTestFixtures.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.androidTestFixtures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.androidTestFixturesDebug.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.androidTestFixturesDebug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.androidTestFixturesRelease.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.androidTestFixturesRelease.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.commonMain.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.commonMain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.commonTest.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.commonTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosArm64Main.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosArm64Main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosArm64Test.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosArm64Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosMain.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosMain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosSimulatorArm64Main.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosSimulatorArm64Main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosSimulatorArm64Test.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosSimulatorArm64Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosTest.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosX64Main.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosX64Main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosX64Test.iml" filepath="$PROJECT_DIR$/.idea/modules/iap-native/IAP_Native.iap-native.iosX64Test.iml" />
+    </modules>
+  </component>
+</project>

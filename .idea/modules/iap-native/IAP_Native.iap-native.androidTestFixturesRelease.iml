@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":iap-native:androidTestFixturesRelease" external.linked.project.path="$MODULE_DIR$/../../../iap-native" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="io.pressf.iap-native" external.system.module.type="sourceSet" external.system.module.version="1.6.1" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="SELECTED_BUILD_VARIANT" value="debug" />
+        <option name="ASSEMBLE_TASK_NAME" value="assembleDebug" />
+        <option name="COMPILE_JAVA_TASK_NAME" value="compileDebugSources" />
+        <afterSyncTasks>
+          <task>generateDebugSources</task>
+        </afterSyncTasks>
+        <option name="ALLOW_USER_CONFIGURATION" value="false" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/androidMain/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
+        <option name="RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../iap-native/src/main/res;file://$MODULE_DIR$/../../../iap-native/src/androidMain/res;file://$MODULE_DIR$/../../../iap-native/src/debug/res;file://$MODULE_DIR$/../../../iap-native/src/androidDebug/res;file://$MODULE_DIR$/../../../iap-native/build/generated/res/rs/debug;file://$MODULE_DIR$/../../../iap-native/build/generated/res/resValues/debug" />
+        <option name="TEST_RES_FOLDERS_RELATIVE_PATH" value="file://$MODULE_DIR$/../../../iap-native/src/androidTest/res;file://$MODULE_DIR$/../../../iap-native/src/androidAndroidTest/res;file://$MODULE_DIR$/../../../iap-native/src/androidTestDebug/res;file://$MODULE_DIR$/../../../iap-native/src/androidAndroidTestDebug/res;file://$MODULE_DIR$/../../../iap-native/build/generated/res/rs/androidTest/debug;file://$MODULE_DIR$/../../../iap-native/build/generated/res/resValues/androidTest/debug" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
+        <option name="PROJECT_TYPE" value="1" />
+      </configuration>
+    </facet>
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="4" platform="Common (experimental) " allPlatforms="JVM [1.8]/Native []/Native [general]" useProjectSettings="false" isTestModule="false" externalProjectId=":iap-native" isHmppProject="true">
+        <newMppModelJpsModuleKind>SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
+        <compilerSettings />
+        <compilerArguments>
+          <option name="languageVersion" value="1.6" />
+          <option name="apiVersion" value="1.6" />
+          <option name="pluginOptions">
+            <array />
+          </option>
+          <option name="pluginClasspaths">
+            <array>
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-jvm/1.6.21/ab52f6af29c00a8a9c89ea2b34b5f4d27960bd3f/kotlin-scripting-jvm-1.6.21.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-common/1.6.21/2e2e17b6e20c9c44f1d76d0df4f8f0b3fcfa944f/kotlin-scripting-common-1.6.21.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.6.21/11ef67f1900634fd951bad28c53ec957fabbe5b8/kotlin-stdlib-1.6.21.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.6.21/5e5b55c26dbc80372a920aef60eb774b714559b8/kotlin-stdlib-common-1.6.21.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-script-runtime/1.6.21/99c6675100da5d6d5b1c5a1032f27f28008d101b/kotlin-script-runtime-1.6.21.jar" />
+            </array>
+          </option>
+          <option name="multiPlatform" value="true" />
+        </compilerArguments>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../iap-native/src/androidTestFixturesRelease/kotlin" />
+    <content url="file://$MODULE_DIR$/../../../iap-native/src/androidTestFixturesRelease/resources" />
+    <content url="file://$MODULE_DIR$/../../../iap-native/src/testFixturesRelease/java" />
+    <content url="file://$MODULE_DIR$/../../../iap-native/src/testFixturesRelease/kotlin" />
+    <content url="file://$MODULE_DIR$/../../../iap-native/src/testFixturesRelease/resources" />
+    <orderEntry type="jdk" jdkName="Android API 31 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="IAP_Native.iap-native.commonMain" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:commonMain:1.6.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:concurrentMain:1.6.1" level="project" />
+  </component>
+</module>
