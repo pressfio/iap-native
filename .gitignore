@@ -2,3 +2,6 @@
 /build/
 /build/intermediates/javac/debug/classes/
 /local.properties
+/.gradle
+/iap-native/build
+.DS_Store
